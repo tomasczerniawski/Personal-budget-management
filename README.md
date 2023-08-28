@@ -1,4 +1,4 @@
-# Project Personal Budget Management
+# Personal Budget Management
 Personal budget management
 
 The project aims to help users manage their personal budget. The project will include features such as adding expenses and income, allowing users to track their budget and generate reports.
