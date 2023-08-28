@@ -38,11 +38,11 @@ Compile the program using your chosen compiler.
 
 Run the program and start managing your personal budget!
 
-Alternatively, you can also send the PMB.exe file to run the system on Windows.
+Alternatively, you can also download the PMB.exe file to run the system on Windows.
 
 At the moment, the system doesn't work on Linux and other operating systems.
 
 **Authors:**
-This project was developed by Tomas Czerniawski.
+This project was developed by Tomas Černiavski.
 
 The project will be based on a simple user interface that enables easy and intuitive use of all functions.
