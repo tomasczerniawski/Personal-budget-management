@@ -156,3 +156,146 @@ The class `BinaryTree` represents a binary tree. It has a field
 - The `searchRecursive` method is a recursive algorithm for searching nodes in a binary tree based on a given keyword. It searches the tree by comparing node descriptions with the provided keyword. If the node is found, it's returned. Otherwise, the algorithm recursively searches the left and right subtrees.
 
   ![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/83f2302b-2e6e-40b2-b90f-e401ae3ec8d0)
+
+  **In my code:
+  
+- The "search" method takes a parameter "keyword," which represents the description we are looking for in the tree. The method calls the "searchRecursive" function, passing it the tree root ("root") and the desired "keyword." The "searchRecursive" function starts by checking if the current node is empty or if its description matches the searched "keyword." If so, it returns that node.
+
+- If the description of the current node doesn't match the searched "keyword," the function recursively calls itself for the left and right subtrees. If a node is found in the left subtree, it returns that node. Otherwise, it calls itself for the right subtree.
+
+- If no node with a matching "keyword" description is found, the "search" function returns nullptr.
+
+  
+# In the FinanceManager.cpp file
+  
+## Algorithms
+  
+### Bubble Sort
+- Bubble Sort is a simple sorting algorithm that compares adjacent elements and swaps them if they are in the wrong order. The algorithm performs these operations in a loop, iterating through the list multiple times until the list is sorted.
+
+  ![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/beff2f5c-7fda-4af1-b899-b777127afd25)
+
+  In this code, Bubble Sort is used to sort data in a binary tree. The algorithm compares and swaps nodes based on their income values.
+  
+# Functions:
+  
+### This function presents the program's login menu
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/281e3ade-4f49-476a-94ea-18deeb2ceb9d)
+
+- `Main Menu:` The function displays the main program menu, where the user can choose one of three options:
+
+- Sign up: This option allows the user to register a new account. Upon choosing this option, the user is prompted to enter their registration details, such as username and password. Then, these details are processed and saved in an XML file where a unique identification number (UserId) is assigned, enabling the user to use the program.
+
+- Sign in: This option allows the user to log in to an existing account. Upon choosing this option, the user is prompted to enter their username and password for authentication. If the login data is correct, the user gains access to the full program functionality.
+
+- Exit: This option allows the user to exit the program. Upon choosing this option, the program is closed and terminated.
+  
+### Main menu of the Personal Budget Management project
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/2ed0f216-047a-4f2b-a09d-96b7e755ad7d)
+  
+## Function Add Income (Choice No. 1)
+  
+### Add income
+  
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/c9a0d5d3-443a-4722-842b-fd823d8b4c6f)
+
+  - The "Add income" option allows the user to add new income to the system. Upon selecting this option, the user is guided through the process of entering income-related data, such as date, item, and amount, which are automatically assigned. Each income also receives a user identifier and income identifier. Then, the function calls the "addIncomeToXmlFile" function to add the income to the XML file. If the addition is successful, a confirmation message is displayed. After completion, the user is asked to press any key to continue.
+  
+## Function Add Expense (Choice No. 2)
+
+### Add expense
+  
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/be705b86-d220-4382-8f20-1caf45bc4c22)
+
+  - The "Add expense" option allows the user to add new expense to the system and works in the same way as "Add income."
+  
+## Function View Current Month's Balance (Choice No. 3)
+  
+### View current month's balance
+  
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/c7e3aa5a-61fb-4698-bad5-1a010649c8bd)
+
+ - The "viewCurrentMonthBalance" function is used to display the balance of the current month. It first calculates the minimum and maximum dates for the current month based on the current system date. Information about current month's incomes and expenses are displayed, along with a summary.
+
+- The function calls the "viewSelectedIncomes" function to display the incomes for the specified date range (from minDate to maxDate) using a binary tree structure. Then, the "viewSelectedExpenses" function is called to display the expenses of the current month.
+
+- The "viewSelectedIncomes" function traverses the binary income tree in an inorder fashion using a stack. For each node, it checks if the income date falls within the specified date range (minDate to maxDate). If so, income details (e.g., name and amount) are displayed on the console.
+
+- The function concludes when it has traversed all income and expense nodes in the same manner or when the stack is empty.
+  
+## Function View Balance of the Selected Period (Choice No. 4)
+  
+### View balance of the selected period
+  
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/efc3be6e-9470-413b-959d-a6aa9c95cc29)
+
+- The "viewBalanceOfSelectedPeriod" function is used to display the balance for a selected period. The user is prompted to provide a start and end date for the period they want to view. The function then calculates the minimum and maximum dates for that period.
+- It works in the same way as the previous function, but here the user specifies the period they want to analyze.
+  
+## Function View All Incomes/Expenses (Choice No. 5/6)
+  
+### View all incomes/expenses:
+  
+  - I'm combining these two options since they work similarly.
+  
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/26c3e90b-6f09-46fd-bbdd-0a5785a55866)
+
+- The "viewAllIncomes" function is used to display all incomes. It starts by calling the "viewIncome" function, passing it the binary income tree root "incomesBinaryTree."
+
+- The "copyBinaryTree" function copies a binary tree passed as the "node" argument. A new node with the same value is created, and then left and right subtrees are recursively copied. It's used to avoid modifying the original tree; a copy is created on which these operations are performed.
+
+- The "deleteBinaryTree" function is used to delete a binary tree. It recursively deletes left and right subtrees, and then the node itself.
+
+- The "viewIncome" function initializes the income display. It begins by making a copy of the original income tree using the "copyBinaryTree" function. Then, it presents the user with sorting options for incomes, such as sorting by date (newest or oldest) or sorting by amount (cheapest or most expensive). The user's choice is stored in the "choice" variable.
+
+- Depending on the user's choice, incomes are displayed in the specified sorting order. Functions like "viewIncomeByDateNewest," "viewIncomeByDateOldest," "sortIncomesByAmount," "displayIncomesByAmount," and "viewIncomeByPriceMostExpensive" are called based on the user's selection.
+
+- "viewIncomeByDateNewest" and "viewIncomeByDateOldest" functions display incomes sorted by date, with the newest or oldest displayed first. They use a stack to traverse the binary income tree in reverse order (right, root, left), storing the sorted incomes in the "sortedIncomes" container.
+
+- The "countNodes" function counts the number of nodes in a binary tree. It recursively calculates the number of nodes in the left and right subtrees, then adds one for the current node.
+
+- The "sortIncomesByAmount" function sorts incomes by amount using the bubble sort algorithm. It first counts the number of nodes in the subtree, then compares adjacent nodes' amounts and swaps them if one's amount is greater than the other's. This procedure is repeated for all nodes.
+
+- The "displayIncomesByAmount" function displays incomes by amount using an inorder traversal (left, root, right). It's recursively called for the left subtree, the current income is displayed, and then it's recursively called for the right subtree.  
+
+## Function Search in Budget (Choice No. 7)
+  
+### Search in budget
+  
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/ef741b7b-7b99-476e-a517-2c7a573fa1e1)
+  
+ - The "searchIncomesAndExpenses," "searchIncomeByItemRecursive," and "searchExpenseByItemRecursive" functions are used for searching incomes and expenses based on a provided keyword.
+
+- The "searchIncomesAndExpenses" function initiates the search process. It calls two other recursive functions: "searchIncomeByItemRecursive" and "searchExpenseByItemRecursive."
+
+- The "searchIncomeByItemRecursive" and "searchExpenseByItemRecursive" functions recursively search the income and expense binary trees for nodes with an "item" element that matches the provided keyword. If such nodes are found, the "displayIncome" or "displayExpense" function is called to display the details of the found income or expense. The "resultsFound" parameter is used to track if any results were found.
+
+## Function Generate Report (Choice No. 8)
+  
+### Generate report
+  
+![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/a3d1af62-022a-4c03-9e76-b3d50177422c)
+
+ - The "generateMonthlyIncomeChart," "countMonthlyIncomes," and "countMonthlyExpenses" functions are used to generate a monthly budget report.
+
+- The "generateMonthlyIncomeChart" function initiates the report generation process. It prompts the user to provide a start and end date for the period they want to view. Then, it calls other functions like "viewSelectedIncomes," "viewSelectedExpenses," "calculateTotalIncome," and "calculateTotalExpense" to display selected incomes and expenses and calculate the total income and expense for the specified period.
+
+- The function then generates a chart of monthly budget in the specified period. It creates a vector called "monthlyIncomes" to store income amounts for each month. It iterates over income nodes and accumulates income amounts for each month. The chart is presented using "#" and "---" symbols based on the income amounts.
+
+- Finally, the function displays a summary of the selected period, including the total income, total expense, and monthly budget.
+
+- The "countMonthlyIncomes" and "countMonthlyExpenses" functions are helper functions that recursively traverse the binary income and expense trees, calculating income and expense sums for each month in the specified period. The found amounts are stored in "monthlyIncomes" and "monthlyExpenses" vectors.
+
+## Function Generate Random Budget (Choice No. 9)
+  
+### Generate random budget
+  
+  ![image](https://github.com/tomasczerniawski/Project-Personal-budget-management/assets/115027239/c598b766-4fa5-425b-ae8f-41006c92375c)
+  
+- The user is prompted to provide a start and end date for the period, minimum and maximum amount, and the number of generated expenses and incomes.
+Random amount within the specified range is generated using the "rand()" function and mathematical operations.
+
+- Generating a random date within the specified range is based on minimum and maximum year, month, and day values, using "rand()" function to generate random values for these date components.
+  
+- Additionally, the function uses binary trees ("incomesBinaryTree" and "expensesBinaryTree") to store generated incomes and expenses. When generating an income, an "Income" class object is created and added to "incomesBinaryTree." For expenses, an "Expense" class object is created and added to "expensesBinaryTree."
+
